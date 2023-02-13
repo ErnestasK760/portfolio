@@ -2,16 +2,17 @@ import React, {FunctionComponent, useEffect} from 'react';
 import {NavigationContentComponent} from "./NavigationContentComponent";
 // @ts-ignore
 // import Experience from '../experience/experience.js';
+type LeftContextMenuComponentProps = {
+    handleClick: () => void;
+}
 
-
-export const LeftContextMenuComponent: FunctionComponent<leftContextMenuComponentProps> = (props) => {
+export const LeftContextMenuComponent: FunctionComponent<LeftContextMenuComponentProps> = (props) => {
     useEffect(() => {
-        // console.log(props.contentPanel);
     }, []);
 
     return (
         <div className="left-pane">
-            <NavigationContentComponent />
+            <NavigationContentComponent handleClick={props.handleClick}/>
         </div>
     );
 };

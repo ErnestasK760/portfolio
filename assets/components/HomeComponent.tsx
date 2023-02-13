@@ -7,15 +7,20 @@ import {RightContextPaneComponent} from "./RightContextPaneComponent";
 
 
 export const HomeComponent: FunctionComponent = () => {
-    const contentPanel = useRef(null);
-    useEffect(() => {
+    const [contentPanelShade, setContentPanelShade] = React.useState(false);
 
+    const handleClick = () => {
+      setContentPanelShade(!contentPanelShade);
+      console.log('homeComponent', contentPanelShade);
+    };
+
+    useEffect(() => {
     }, []);
 
     return (
         <div className="background-plate">
-            <LeftContextMenuComponent />
-            <ContentComponent ref={contentPanel} />
+            <LeftContextMenuComponent handleClick={handleClick}/>
+            <ContentComponent contentPanelShade={contentPanelShade}/>
             <RightContextPaneComponent />
         </div>
     );
